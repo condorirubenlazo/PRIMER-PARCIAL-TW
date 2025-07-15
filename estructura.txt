@@ -1,0 +1,20 @@
+PRIMER PARCIAL TW
+
+sistema-gestion-academica/
+│
+├── index.html          # Página de login
+├── panel.html          # Panel principal después del login
+├── materias.html       # Página de materias cursadas
+├── promedio.html       # Página de promedio general
+├── calendario.html     # Página de calendario de exámenes
+├── css/
+│   └── style.css       # Estilos personalizados
+└── js/
+    └── script.js       # Funcionalidad JavaScript
+
+
+CREDENCIALES
+
+Usuario: admin
+
+Contraseña: 12345

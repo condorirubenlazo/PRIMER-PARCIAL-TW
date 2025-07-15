@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Principal - Sistema de Gestión Académica</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Gestión Académica</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="panel.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="materias.html">Materias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="promedio.html">Promedio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="calendario.html">Calendario</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="logoutBtn">Cerrar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main class="container my-5">
+        <h1 class="text-center mb-4">Panel Principal</h1>
+        <div class="row g-4">
+            <!-- Card 1: Materias cursadas -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow">
+                    <div class="card-body text-center">
+                        <i class="bi bi-book fs-1 text-primary"></i>
+                        <h5 class="card-title mt-3">Materias Cursadas</h5>
+                        <p class="card-text">Consulta las materias que estás cursando actualmente y tu historial académico.</p>
+                        <a href="materias.html" class="btn btn-primary">Ver Materias</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 2: Promedio general -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow">
+                    <div class="card-body text-center">
+                        <i class="bi bi-graph-up fs-1 text-success"></i>
+                        <h5 class="card-title mt-3">Promedio General</h5>
+                        <p class="card-text">Revisa tu promedio general de notas y tu rendimiento académico.</p>
+                        <a href="promedio.html" class="btn btn-success">Ver Promedio</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 3: Calendario de exámenes -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow">
+                    <div class="card-body text-center">
+                        <i class="bi bi-calendar-event fs-1 text-warning"></i>
+                        <h5 class="card-title mt-3">Calendario de Exámenes</h5>
+                        <p class="card-text">Consulta las fechas importantes y programación de tus exámenes.</p>
+                        <a href="calendario.html" class="btn btn-warning">Ver Calendario</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Sistema de Gestión Académica</h5>
+                    <p class="mb-0">Plataforma para el seguimiento del rendimiento estudiantil UPC.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">&copy; 2025 Todos los derechos reservados</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

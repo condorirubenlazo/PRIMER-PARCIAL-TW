@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario de Exámenes - Sistema de Gestión Académica</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Estilos específicos para el calendario */
+        #calendar {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .fc-header-toolbar {
+            margin-bottom: 1.5em;
+        }
+        
+        .fc-toolbar-title {
+            font-size: 1.5em;
+            color: #333;
+        }
+        
+        .fc-button {
+            background-color: #0d6efd;
+            border: none;
+            padding: 6px 12px;
+        }
+        
+        .fc-button:hover {
+            background-color: #0b5ed7;
+        }
+        
+        .fc-button-primary:not(:disabled).fc-button-active {
+            background-color: #0b5ed7;
+        }
+        
+        .fc-daygrid-event {
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        
+        .fc-day-today {
+            background-color: rgba(13, 110, 253, 0.1) !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Gestión Académica</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="panel.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="materias.html">Materias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="promedio.html">Promedio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="calendario.html">Calendario</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="logoutBtn">Cerrar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main class="container my-5">
+        <h1 class="text-center mb-4">Calendario de Exámenes</h1>
+        
+        <div class="row mb-4">
+            <div class="col-md-8">
+                <div class="card shadow mb-4">
+                    <div class="card-header bg-warning text-dark">
+                        <h4 class="mb-0">Calendario Académico</h4>
+                    </div>
+                    <div class="card-body">
+                        <div id="calendar"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card shadow">
+                    <div class="card-header bg-danger text-white">
+                        <h4 class="mb-0">Próximos Exámenes</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group">
+                            <div class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">Matemáticas Avanzadas</h5>
+                                    <small class="text-danger">15 Oct</small>
+                                </div>
+                                <p class="mb-1">Examen Parcial - Unidades 1-3</p>
+                                <small>Salón 302 - 8:00 AM</small>
+                            </div>
+                            <div class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">Programación Web</h5>
+                                    <small class="text-danger">18 Oct</small>
+                                </div>
+                                <p class="mb-1">Presentación Proyecto Final</p>
+                                <small>Laboratorio 5 - 10:00 AM</small>
+                            </div>
+                            <div class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">Base de Datos</h5>
+                                    <small class="text-danger">20 Oct</small>
+                                </div>
+                                <p class="mb-1">Examen Final</p>
+                                <small>Salón 205 - 2:00 PM</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card shadow mt-4">
+                    <div class="card-header bg-info text-white">
+                        <h4 class="mb-0">Fechas Importantes</h4>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Inicio de Clases
+                                <span class="badge bg-primary rounded-pill">5 Sep</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Último día para retiros
+                                <span class="badge bg-primary rounded-pill">20 Sep</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Semana de exámenes parciales
+                                <span class="badge bg-danger rounded-pill">15-20 Oct</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Fin de Clases
+                                <span class="badge bg-primary rounded-pill">30 Nov</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Exámenes finales
+                                <span class="badge bg-danger rounded-pill">5-15 Dic</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Sistema de Gestión Académica</h5>
+                    <p class="mb-0">Plataforma para el seguimiento del rendimiento estudiantil.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">&copy; 2023 Todos los derechos reservados</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/locales/es.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        // Calendario interactivo en español
+        document.addEventListener('DOMContentLoaded', function() {
+            const calendarEl = document.getElementById('calendar');
+            const calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                locale: 'es',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                buttonText: {
+                    today: 'Hoy',
+                    month: 'Mes',
+                    week: 'Semana',
+                    day: 'Día',
+                    list: 'Lista'
+                },
+                firstDay: 1, // Lunes como primer día de la semana
+                events: [
+                    {
+                        title: 'Examen Matemáticas',
+                        start: '2023-10-15T08:00:00',
+                        end: '2023-10-15T10:00:00',
+                        color: '#dc3545',
+                        description: 'Examen parcial - Unidades 1-3'
+                    },
+                    {
+                        title: 'Presentación Proyecto Web',
+                        start: '2023-10-18T10:00:00',
+                        end: '2023-10-18T12:00:00',
+                        color: '#fd7e14',
+                        description: 'Presentación del proyecto final'
+                    },
+                    {
+                        title: 'Examen Final Base de Datos',
+                        start: '2023-10-20T14:00:00',
+                        end: '2023-10-20T16:00:00',
+                        color: '#dc3545',
+                        description: 'Examen final teórico-práctico'
+                    },
+                    {
+                        title: 'Entrega Trabajo Investigación',
+                        start: '2023-11-10',
+                        color: '#20c997',
+                        description: 'Entrega del trabajo de investigación'
+                    },
+                    {
+                        title: 'Reunión con Tutor',
+                        start: '2023-11-15T15:00:00',
+                        end: '2023-11-15T16:00:00',
+                        color: '#6f42c1',
+                        description: 'Revisión de avances académicos'
+                    }
+                ],
+                eventClick: function(info) {
+                    info.jsEvent.preventDefault();
+                    
+                    const event = info.event;
+                    const modal = new bootstrap.Modal(document.createElement('div'));
+                    
+                    modal._element.innerHTML = `
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header" style="background-color: ${event.backgroundColor}">
+                                    <h5 class="modal-title text-white">${event.title}</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p><strong>Fecha:</strong> ${event.start.toLocaleString('es-ES', { 
+                                        weekday: 'long', 
+                                        year: 'numeric', 
+                                        month: 'long', 
+                                        day: 'numeric',
+                                        hour: '2-digit',
+                                        minute: '2-digit'
+                                    })}</p>
+                                    ${event.extendedProps.description ? `<p><strong>Descripción:</strong> ${event.extendedProps.description}</p>` : ''}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    document.body.appendChild(modal._element);
+                    modal.show();
+                    
+                    modal._element.addEventListener('hidden.bs.modal', function() {
+                        document.body.removeChild(modal._element);
+                    });
+                }
+            });
+            
+            calendar.render();
+        });
+    </script>
+</body>
+</html>
